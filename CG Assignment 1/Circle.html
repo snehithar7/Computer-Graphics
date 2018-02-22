@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+
+
+<h1 align = "center"><i><u>Circle Drawing</u>  </i> </h1>
+
+<head>
+<link rel="stylesheet" type="text/css" href="mystyle.css">
+</head>
+
+<body>
+<form action = 'locate'>
+<input type = "button" class = "myButton" 
+onclick = "Circle()" value =" Draw circle" style= "font-size:100% " ;>
+
+
+<input type = "button" class = "myButton" 
+onclick = "clearScreen()" value ="Clear " style="font-size:100%";>
+
+</form>
+<br>
+
+<canvas id="myCanvas" width="800" height="600" style="border:2px solid  red ;margin:100px; background-color:white;" >
+</canvas>
+
+
+
+<script>
+
+var canvas;
+var  context;
+var  clickpoint = false;
+var  startPointLocation;
+var  Points;
+var   x,y, position;
+    
+function getCanvasCoordinates(event) {
+    x = event.clientX - canvas.getBoundingClientRect().left,
+    y = event.clientY - canvas.getBoundingClientRect().top;
+    return {x: x, y: y};
+}
+
+function takePoints() {
+    Points = context.getImageData(0, 0, canvas.width, canvas.height);
+}
+
+function restorePoints() {
+    context.putImageData(Points, 0, 0);
+}
+
+
+function Circle() {
+    canvas = document.getElementById("myCanvas");
+    context = canvas.getContext('2d');
+    canvas.addEventListener('mousedown', startPoint, false);
+    canvas.addEventListener('mousemove', drag, false);
+    canvas.addEventListener('mouseup', endPoint, false);
+}
+
+
+function startPoint(event) {
+    clickpoint = true;
+    startPointLocation = getCanvasCoordinates(event);
+    takePoints();
+}
+
+function drag(event) {
+    if (clickpoint === true) {
+        restorePoints();
+        position = getCanvasCoordinates(event);
+        drawCircle();
+    }
+}
+
+function endPoint(event) {
+    clickpoint = false;
+    restorePoints();
+    position = getCanvasCoordinates(event);
+    drawCircle();
+
+}
+
+function drawCircle() {
+
+	getPoints(startPointLocation.x,startPointLocation.y,position.x,position.y);
+
+}
+
+function getPoints(xm,ym,r) {
+
+	context.clearRect(0,0,myCanvas.width,myCanvas.height);
+	context.fillStyle= 'blue';
+
+	var xx = -r, yy = 0, error = 2-2*r;                
+	   do {
+	      context.fillRect(xm-xx, ym+yy,1,1);                            
+	      context.fillRect(xm-yy, ym-xx,1,1);                            
+	      context.fillRect(xm+xx, ym-yy,1,1);                            
+	      context.fillRect(xm+yy, ym+xx,1,1);                            
+	      r = error;                                       
+	      if (r <= yy) error += ++yy*2+1;                                   
+	      if (r > xx || error > yy) error += ++xx*2+1;                         
+	   } while (xx < 0);
+	}
+
+
+
+function clearScreen(){
+	context.clearRect(0,0,myCanvas.width,myCanvas.height);
+}
+</script>
+
+</body>
+</html>

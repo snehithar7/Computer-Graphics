@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+
+
+<h1 align = "left"><i><u>Ellipse Drawing</u>  </i> </h1>
+
+<head>
+<link rel="stylesheet" type="text/css" href="mystyle.css">
+</head>
+<br>
+<body>
+<input type = "button" class = "myButton" 
+onclick = "Ellipse()" value =" Draw Ellipse"  >
+
+<input type = "button" class = "myButton" 
+onclick = "clearScreen()" value ="Clear ">
+
+<br>
+
+<canvas id="myCanvas" width="600" height="300" style="border:2px solid  green ;margin:100px; background-color:white;" >
+</canvas>
+
+
+
+<script>
+
+var canvas;
+var  context;
+var  clickpoint = false;
+var  startPointLocation;
+var  Points;
+var   x,y, position;
+    
+function getCanvasCoordinates(event) {
+    x = event.clientX - canvas.getBoundingClientRect().left,
+    y = event.clientY - canvas.getBoundingClientRect().top;
+    return {x: x, y: y};
+}
+
+function takePoints() {
+    Points = context.getImageData(0, 0, canvas.width, canvas.height);
+}
+
+function restorePoints() {
+    context.putImageData(Points, 0, 0);
+}
+
+
+function Ellipse() {
+    canvas = document.getElementById("myCanvas");
+    context = canvas.getContext('2d');
+    canvas.addEventListener('mousedown', startPoint, false);
+    canvas.addEventListener('mousemove', drag, false);
+    canvas.addEventListener('mouseup', endPoint, false);
+}
+
+
+function startPoint(event) {
+    clickpoint = true;
+    startPointLocation = getCanvasCoordinates(event);
+    takePoints();
+}
+
+function drag(event) {
+    if (clickpoint === true) {
+        restorePoints();
+        position = getCanvasCoordinates(event);
+
+        drawEllipse();
+    }
+}
+
+function endPoint(event) {
+    clickpoint = false;
+    restorePoints();
+    position = getCanvasCoordinates(event);
+    drawEllipse();
+
+}
+
+function drawEllipse() {
+
+	getpoints(startPointLocation.x,startPointLocation.y,position.x,position.y);
+
+}
+
+function getpoints(xm, ym, a, b) {
+
+	context.clearRect(0,0,myCanvas.width,myCanvas.height);
+	context.fillStyle= 'red';
+
+	   var x = -a, y = 0;           
+	   var e, fx = (1+2*x)*b*b;                              
+	   var fy = x*x, error = fx+fy;                              
+
+	   do {
+	       context.fillRect(xm-x, ym+y,1,1)                                 
+	       context.fillRect(xm+x, ym+y,1,1);                                 
+	       context.fillRect(xm+x, ym-y,1,1);                                 
+	       context.fillRect(xm-x, ym-y,1,1);                                 
+	       e = 2*error;                                        
+	       if (e >= fx) { x++; error += fx += 2*b*b; }                   
+	       if (e <= fy) { y++; error += fy += 2*a*a; }                   
+	   } while (x <= 0);
+
+	   while (y++ < b) {            
+	       context.fillRect(xm, ym+y,document.getElementById("thick").value,document.getElementById("thick").value);                        
+	       context.fillRect(xm, ym-y,document.getElementById("thick").value,document.getElementById("thick").value);
+	   }
+	}
+
+function clearScreen(){
+	context.clearRect(0,0,myCanvas.width,myCanvas.height);
+}
+</script>
+
+</body>
+</html>

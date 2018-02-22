@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+
+
+<h1 align = "center"><i><u> Line Drawing</u>  </i> </h1>
+
+<head>
+<link rel="stylesheet" type="text/css" href="mystyle.css">
+</head>
+<br>
+<body>
+<form action = 'locate'>
+<input type = "button" class = "myButton" 
+onclick = "Line()" value =" Draw line"  >
+
+
+<input type = "button" class = "myButton" 
+onclick = "clearScreen()" value ="Clear ">
+
+<br>
+
+<canvas id="myCanvas" width="600" height="300" style="border:2px solid  red ;margin:100px; background-color:white;" >
+</canvas>
+
+
+<form>
+<script>
+
+var canvas;
+var  context;
+var  clickpoint = false;
+var  startPointLocation;
+var  Points;
+var   x,y, position;
+    
+function getCanvasCoordinates(event) {
+    x = event.clientX - canvas.getBoundingClientRect().left,
+    y = event.clientY - canvas.getBoundingClientRect().top;
+    return {x: x, y: y};
+}
+
+function takePoints() {
+    Points = context.getImageData(0, 0, canvas.width, canvas.height);
+}
+
+function restorePoints() {
+    context.putImageData(Points, 0, 0);
+}
+
+
+function Line() {
+    canvas = document.getElementById("myCanvas");
+    context = canvas.getContext('2d');
+    canvas.addEventListener('mousedown', startPoint, false);
+    canvas.addEventListener('mousemove', drag, false);
+    canvas.addEventListener('mouseup', endPoint, false);
+}
+
+
+function startPoint(event) {
+    clickpoint = true;
+    startPointLocation = getCanvasCoordinates(event);
+    takePoints();
+}
+
+function drag(event) {
+    if (clickpoint === true) {
+        restorePoints();
+        position = getCanvasCoordinates(event);
+
+        drawLine();
+    }
+}
+
+function endPoint(event) {
+    clickpoint = false;
+    restorePoints();
+    position = getCanvasCoordinates(event);
+    drawLine();
+
+}
+
+function drawLine() {
+
+	getPoints(startPointLocation.x,startPointLocation.y,position.x,position.y);
+
+}
+
+function getPoints(x0,y0,x1,y1)
+{
+context.clearRect(0,0,myCanvas.width,myCanvas.height);
+canvas.width=canvas.width;
+context.fill();
+   var vx =  Math.abs(x1-x0), tx = x0<x1 ? 1 : -1;
+   var vy = -Math.abs(y1-y0), ty = y0<y1 ? 1 : -1;
+   var error = vx+vy, e1;                                   
+
+   for (;;){
+
+context.fillStyle='blue';
+context.fillRect(x0,y0,1,1);
+                                                     
+      if (x0 == x1 && y0 == y1) break;
+      e1 = 2*error;
+      if (e1 >= vy) { error += vy; x0 += tx; }                        
+      if (e1 <= vx) { error += vx; y0 += ty; }                        
+   }
+
+   }
+
+function clearScreen(){
+	context.clearRect(0,0,myCanvas.width,myCanvas.height);
+}
+</script>
+
+</body>
+</html>

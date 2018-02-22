@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<br>
+<br>
+
+<h1 align = "left"><i> <u> Rectangle Drawing</u> </i> </h1>
+<head>
+<link rel="stylesheet" type="text/css" href="mystyle.css">
+</head>
+
+<br>
+<br>
+
+
+<body>
+  <b> X: </b> <input type="text" id="X" >
+  <b> Y: </b> <input type="text" id="Y"><br>
+  <br>
+  <b> Enter Height: </b> <input type="text" id="h"  >
+<br>
+<br>
+  <b> Enter Width: </b>  <input type="text" id="w" ><br>
+  <br>
+
+  <input type="button" value="Draw" onclick="drawrect()" style="color:black;">
+  <input type="button" value="ClearCanvas" onclick="clearScreen()"color:black;">
+
+
+<canvas id="myCanvas" width="500" height="300" 
+style="border:3px solid yellow ;margin:200px; background-color:white;" >
+</canvas>
+
+<script>
+
+var canvas=document.getElementById("myCanvas");
+var context= canvas.getContext('2d');
+
+function drawrect() {
+
+var x=document.getElementById("X").value;
+var y=document.getElementById("Y").value;
+
+var h=document.getElementById("h").value;
+var w=document.getElementById("w").value;
+
+context.fillstyle = 'red';
+context.rect(x,y,w,h);
+context.stroke();
+
+}
+
+function clearScreen(){
+	context.clearRect(0,0,myCanvas.width,myCanvas.height);
+}
+
+</script>
+
+</body>
+
+</html>

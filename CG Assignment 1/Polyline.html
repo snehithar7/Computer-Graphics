@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html>
+<h1 align = "center"><i><u>Polyline  Drawing</u>  </i> </h1>
+<head>
+
+ <link rel="stylesheet" type="text/css" href="mystyle.css">
+
+</head>
+
+<body >
+<form action="location">
+
+  <b> Number of points: </b> <input type="text" id="num" >
+  <b> Enter Length: </b> <input type="text" id="len" >
+  <br><br>
+ 
+   <input type="button" value="Draw" onclick="drawPoly()" style="font-size:100%;color:black;"> 
+   <input type="button" value="Clear" onclick="clearScreen()"style="font-size:100%;color:black;">
+
+</form>
+
+<canvas id="myCanvas" width="700" height="500" style="border:5px solid #000000;margin:100px; background-color:white;">
+</canvas>
+
+<script>
+
+var canvas=document.getElementById('myCanvas');
+var context= canvas.getContext('2d');
+
+function drawPoly() {
+
+var n=document.getElementById('num').value;
+var len=document.getElementById('len').value;
+context.beginPath();
+for (var i=1;i<=n;i++) 
+{
+var X=Math.random()*len;
+var Y=Math.random()*len;
+context.fillStyle='blue';
+context.fillRect(X,Y,10,10);
+context.lineTo(X,Y);
+}
+context.fillcolor='green';
+context.stroke();
+}
+
+function clearScreen() {
+
+context.clearRect(0,0,myCanvas.width,myCanvas.height);
+}
+
+</script>
+
+</body>
+
+</html>
+

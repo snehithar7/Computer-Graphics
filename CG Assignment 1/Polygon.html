@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<h1 align = "center"><i><u>Polygon  Drawing</u>  </i> </h1>
+
+<link rel="stylesheet" type="text/css" href="mystyle.css">
+
+
+</head>
+
+<body>
+
+
+
+<form action="poly">
+
+  <b> Number of sides: </b> <input type="text" id="num" >
+  <b> Enter Size: </b> <input type="text" id="size" >
+  <br><br>
+  
+<br> <br> 
+  <strong> <input type="button" value="Draw" onclick="poly()" > 
+  <strong> <input type="button" value="Clear" onclick="clearScreen()">
+
+</form>
+
+<canvas id="myCanvas" width="800" height="600" style="border:5px solid brown;margin:100px; background-color:white;">
+</canvas>
+
+<script>
+
+var canvas=document.getElementById('myCanvas');
+var context= canvas.getContext('2d');
+
+function poly() {
+
+var n=document.getElementById('num').value;
+var size=document.getElementById('size').value;
+var X= canvas.width/2;
+var Y=canvas.height/2;
+context.beginPath();
+context.moveTo(X+size*Math.cos(0),Y+size*Math.sin(0));       
+for (var i=1;i<=n;i++) 
+{
+	context.lineTo (X + size * Math.cos(i * 2 * Math.PI/n), Y + size * Math.sin(i * 2 * Math.PI / n));
+}
+
+context.fillcolor ='pink';
+context.stroke();
+}
+
+function clearScreen() {
+
+context.clearRect(0,0,myCanvas.width,myCanvas.height);
+}
+
+</script>
+
+</body>
+
+</html>
+

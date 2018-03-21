@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+
+<head>
+<title>
+  Wheel Drawing on Drivers Score
+</title>
+
+<link rel="stylesheet" type="text/css" href="mystyle.css">
+</head>
+
+<body>
+
+<h1 align = "center"><i> <u> Wheel Drawing </u> </i> </h1>
+
+<br>
+
+<form style="font-size:120%;color:black;text-align:center;">
+	<b> Enter radius: </b> <input type="text" id="radius" >
+	<b> Enter driver's score: </b> <input type="text" id="score" ><br></br>
+	<b> Fill Color: </b><select id="color">
+         <option value="#F39C12"> Orange</option>
+         <option value="#3498DB"> Blue </option>
+         <option value="#b30000">Brown</option>
+         <option value="solid yellow">Yellow</option>
+</select>
+
+<b> Border Color:</b><select id = "Bcolor"><b></b>
+        <option value="#FF0000"> Red </option>
+        <option value="#3498DB"> Blue </option>
+        <option value="#F39C12"> Orange</option>
+        <option value="#b30000">Brown</option>
+        <option value="solid yellow">Yellow</option>
+</select>
+<br/><br/>
+
+
+<input type="button" value="Draw" onclick="DrawWheel()" style="font-size:80%;"> 
+<input type="button" value="Clear Canvas" onclick="clearScreen()"style="font-size:80%;">
+
+</form>
+
+<canvas id="myCanvas" width="1250" height="800" style="border:2px solid  red ;margin:100px; background-color:white;" >
+</canvas>
+</canvas>
+
+
+<script>
+
+var canvas=document.getElementById("myCanvas");
+var c= canvas.getContext('2d');
+
+function DrawWheel() {
+
+c.clearRect(0,0,myCanvas.width,myCanvas.height);
+var radius=document.getElementById("radius").value;
+var score=document.getElementById("score").value;
+
+if(score==100)
+{
+    c.beginPath();
+    c.arc(400, 300, radius, 0, Math.PI * 2);
+    c.lineWidth=5;
+    c.strokeStyle=document.getElementById("Bcolor").value;
+    c.stroke();
+    c.fillStyle = document.getElementById("color").value;
+    c.fill();
+}
+
+else if(score<100 && score>=80)
+{
+	var ns=100-score;
+	var radius1=radius-((ns*radius)/100);
+	c.beginPath();
+	c.ellipse(400,300,radius,radius1,0, 0, 2 * Math.PI);
+	c.lineWidth=5;
+	c.strokeStyle=document.getElementById("Bcolor").value;
+	c.stroke();
+	c.fillStyle = document.getElementById("color").value;
+	c.fill();
+}
+
+else if(score>=4 && score<=79)
+{
+	var numSides = score;
+	c.clearRect(0,0,canvas.width,canvas.height);
+	c.beginPath();
+	var x = 400 + radius * Math.cos(2 * Math.PI * 0 / numSides);
+	var y = 300 + radius * Math.sin(2 * Math.PI * 0 / numSides);
+	c.moveTo(x,y);
+	for (i = 1; i <= numSides; i++) {
+	x = 400 + radius * Math.cos(2 * Math.PI * i / numSides);
+	y = 300 + radius * Math.sin(2 * Math.PI * i / numSides);
+	c.lineTo(x,y);
+}
+	c.closePath();
+	c.lineWidth=5;
+	c.strokeStyle=document.getElementById("Bcolor").value;
+	c.stroke();
+	c.fillStyle = document.getElementById("color").value;
+	c.fill();
+}
+
+else
+{
+alert("The least accepted Driver's score is 4 and max is 100");
+}
+
+}
+
+function clearScreen() {
+c.clearRect(0,0,myCanvas.width,myCanvas.height);
+}
+
+</script>
+
+</body>
+</html>

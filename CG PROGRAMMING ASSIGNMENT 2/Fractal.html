@@ -1,0 +1,311 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<title>
+  Fractal Drawing
+</title>
+<link rel="stylesheet" type="text/css" href="mystyle.css">
+</head>
+<body>
+
+<h1 align = "center"><i> <u>  Fractal Drawing </u> </i> </h1>
+
+<br>
+<form style="font-size:130%;color:black;text-align:center;">
+
+<b>   Select Primitive: </b> <select id="input">
+      <option value="Line"> <b>Line</b> </option>
+      <option value="Triangle"> <b>Triangle</b> </option>
+     
+</select>
+
+<br><br>
+<b> Fixed numerator   </b> <input type="text" value="1" default >
+<b> Enter denominator of ratio</b> <input type="text" id="ratio" ><br><br> <br>
+<b> Enter iterations: </b> <input type="text" id="iterate" >
+<br/><br/>
+
+
+<b><i> Border color: </i></b> 
+
+<select id="Bcolor">
+        <option value="#FF0000"> Red </option>
+        <option value="#3498DB"> Blue </option>
+        <option value="#F39C12"> Orange</option>
+        <option value="#b30000">Brown</option>
+        <option value="solid yellow">Yellow</option>
+</select>
+
+
+<br> <br> 
+ <input type="button" value="Draw" onclick="drawFractal()" style="font-size:120%;color:black;"> 
+ <input type="button" value="Clear Canvas" onclick="clearScreen()"style="font-size:120%;color:black;">
+ 
+</form>
+<canvas id="myCanvas" width="1200" height="900" style="border:4px solid #000000;margin:100px; background-color:white;" >
+</canvas>
+
+<script>
+var input;
+document.getElementById("input").onchange = function()
+{
+  input= this.selectedIndex; 
+}
+
+var canvas = document.getElementById("myCanvas"),
+c = canvas.getContext("2d"),
+width= canvas.width,
+height=canvas.height;
+
+function drawFractal(){
+
+ if(input==1)
+{
+
+var p0 = {x: 0,y: -250},
+p1 = { x: 250,y: 180};
+p2 = { x: -270,y:  300 };
+
+var ratio=document.getElementById("ratio").value;
+var itr= document.getElementById("iterate").value;
+
+c.translate(width/2, height/2);
+
+KochCurve(p0,p1,ratio,itr);
+KochCurve(p1,p2,ratio,itr);
+KochCurve(p2,p0,ratio,itr);
+
+function KochCurve(p0,p1,ratio,itr) {
+
+if(itr==0){
+c.beginPath();
+c.moveTo(p0.x,p0.y);
+c.lineTo(p1.x,p1.y);
+
+c.strokeStyle=document.getElementById("Bcolor").value;
+c.stroke();
+
+}
+
+else if(ratio < 3)
+{
+alert(" Please enter value above 2");
+}
+
+else if(ratio > 2)
+{
+var dx = parseInt(p1.x - p0.x),
+dy= parseInt(p1.y-p0.y),
+distance = parseInt(Math.sqrt( dx * dx + dy* dy)),
+unit = parseInt(distance /ratio) ,
+angle = Math.atan2(dy,dx),
+pA= { 
+   x: parseInt(p0.x + dx/ratio),
+   y: parseInt(p0.y + dy/ratio)
+    },
+pC= {
+   x: parseInt(p1.x - dx/ratio),
+   y:parseInt(p1.y - dy/ratio)
+},
+
+pB= {
+    x:  parseInt(pA.x + Math.cos(angle - Math.PI / ratio) * unit),
+    y: parseInt(pA.y + Math.sin(angle - Math.PI / ratio ) * unit)
+
+}; 
+
+
+if(itr > 1){
+KochCurve(p0,pA,ratio,itr-1)
+KochCurve(pA,pB,ratio,itr-1)
+KochCurve(pB,pC,ratio,itr-1)
+KochCurve(pC,p1,ratio,itr-1)
+}
+
+else
+{
+c.beginPath();
+c.moveTo(p0.x,p0.y);
+c.lineTo(pA.x,pA.y);
+c.lineTo(pB.x,pB.y);
+c.lineTo(pC.x,pC.y);
+c.lineTo(p1.x,p1.y);
+
+c.strokeStyle=document.getElementById("Bcolor").value;
+c.stroke();
+} // end of else
+
+} // end of else if
+
+} // end of KochCurve
+
+} // end of else if
+
+
+else 
+
+{
+
+var p0 = {
+     x:50,
+     y: height * .75
+},
+p1 = { 
+     x:width - 50,
+     y: height * .75
+};
+
+
+var ratio=document.getElementById("ratio").value;
+var itr= document.getElementById("iterate").value;
+
+
+KochCurve(p0,p1,ratio,itr);
+
+
+function KochCurve(p0,p1,ratio,itr) {
+
+if(itr==0){
+
+if(ratio==2) {
+    
+    c.beginPath();
+    c.moveTo(50,50);
+    c.lineTo(700,50);
+    c.strokeStyle=document.getElementById("Bcolor").value;
+    c.stroke();
+}
+else {
+
+c.beginPath();
+c.moveTo(p0.x,p0.y);
+c.lineTo(p1.x,p1.y);
+
+c.strokeStyle=document.getElementById("Bcolor").value;
+c.stroke();
+}
+
+}
+
+else if(ratio==2)
+{
+
+var X1 = 0;
+var X2 = 0;
+var a = [];
+
+var d = linef(50,130,200,130, 0);
+    Fractal1(d, itr);
+
+function KochCurve2(x,y,lineLength,deg){
+    deg = (deg-360)%360
+    X1 = x+lineLength *Math.cos(deg *Math.PI/180);
+    Y1 = y+lineLength *Math.sin(deg *Math.PI/180);
+    a.push(linef(x,y+100,X1,Y1+100,deg))
+   
+    c.beginPath();
+    c.moveTo(x,y);
+    c.lineTo(X1,Y1);
+    c.strokeStyle=document.getElementById("Bcolor").value;
+    c.stroke();
+}
+function linef(x1,y1,x2,y2,degrees){
+    var obj = {};
+    obj.x1 = x1
+    obj.x2 = x2
+    obj.y1 = y1
+    obj.y2 = y2
+    obj.degrees = degrees
+
+    return obj;
+}
+
+function Fractal1(lineObj, iteration){
+
+    var len = 0;
+    for(var j=0; j<iteration; j++){
+        len = len+Math.pow(4,j)
+    }
+
+    a.push(lineObj);
+
+    for(var i = 0; i<len; i++){
+        fractal(a[i]);
+    }
+
+    function fractal(obj){
+        x1 = obj.x1
+        y1 = obj.y1
+        x2 = obj.x2
+        y2 = obj.y2
+        degrees = obj.degrees
+    
+        var dx = Math.pow ((x1-x2),2),
+        dy = Math.pow ((y1-y2),2),
+        distance = Math.sqrt(dx+dy),
+        lineLength = distance/2;    
+        
+        KochCurve2(x1,y1,lineLength,degrees+60);   
+        KochCurve2(X1,Y1,lineLength,degrees-60,);
+        KochCurve2(X1,Y1,lineLength,degrees-60);
+        KochCurve2(X1,Y1,lineLength,degrees+60);        
+    }
+
+}
+
+}
+
+else if(ratio > 2)
+{
+var dx = parseInt(p1.x - p0.x),
+dy= parseInt(p1.y-p0.y),
+distance = parseInt(Math.sqrt( dx * dx + dy* dy)),
+unit = parseInt(distance /ratio) ,
+angle = Math.atan2(dy,dx),
+pA= { 
+   x: parseInt(p0.x + dx/ratio),
+   y: parseInt(p0.y + dy/ratio)
+    },
+pC= {
+   x:parseInt(p1.x - dx/ratio),
+   y:parseInt(p1.y - dy/ratio)
+},
+
+pB= {
+    x: parseInt(pA.x + Math.cos(angle - Math.PI / ratio) * unit),
+    y: parseInt(pA.y + Math.sin(angle - Math.PI / ratio ) * unit)
+
+}; 
+
+
+if(itr > 1){
+KochCurve(p0,pA,ratio,itr-1)
+KochCurve(pA,pB,ratio,itr-1)
+KochCurve(pB,pC,ratio,itr-1)
+KochCurve(pC,p1,ratio,itr-1)
+}
+
+else
+{
+c.beginPath();
+c.moveTo(p0.x,p0.y);
+c.lineTo(pA.x,pA.y);
+c.lineTo(pB.x,pB.y);
+c.lineTo(pC.x,pC.y);
+c.lineTo(p1.x,p1.y);
+c.strokeStyle=document.getElementById("Bcolor").value;
+c.stroke();
+}  }} 
+
+}
+ 
+}
+
+function clearScreen() {
+c.save();
+c.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+</script>
+</body>
+</html>

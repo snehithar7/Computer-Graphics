@@ -1,0 +1,36 @@
+----------------------------------------------------------------------------
+Assignment	:Final Project Week 1
+
+Name 		:Snehitha Ramasahayam
+
+Student ID   	:01714702
+
+Link		:http://www.cs.uml.edu/~sramasah/427546s2018/finalProject/
+
+Email		:snehitha_ramasahayam@student.uml.edu
+
+Cs Dept Email   :sramasah@cs.uml.edu                                            |
+----------------------------------------------------------------------------
+
+FILES:
+
+
+1. The file "1. HouseViews.html" consists of a 2D house elevations of front, side and top views.This page is developed using the sag in javascript when this web page is opened this consists of  all the views one below the another. 
+
+Buttons are to be added further after developing  the transformations.
+
+This web page is working fine in the Google chrome browser.
+
+I gained the basic understanding of the 2D view  with this view development further transformations like translate, rotate, scale etc should be added to all the 2D views of the house.
+
+Later the whole house figure, 3D object needs to be developed the 3D views need to be developed using Web Gl and additionally the transformations are to applied on the 3D object.
+
+
+
+Working Instructions:
+
+
+Open the link provided  and then click on the HouseViews.html.
+This opens the web page  and the top side and front views of the house can be seen on this one page.
+
+

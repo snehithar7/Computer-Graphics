@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Week one </title>
+<style>
+.Clearf:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+	background-color:blue;
+	}
+
+</style>
+</head>
+<body background="blue.jpg">
+<div style="background-color:yellow;color:tomato;padding:9px;">
+<h1><center><i><u>2D  Transformations of House  Front/Side/Top Elevations<u></i></center></h1>
+</div> 
+
+<div id="mydiv" class="Clearf">
+<div id="frontview" style="float:left;width:50%;border: 1px solid; "> 
+<div id="frontviewsvg" style="overflow:hidden"> 
+
+<style>
+h4 {
+font-size: 30px;
+font-weight:bold;
+font-style:italic;
+font-color:tomato;
+
+}
+</style>
+
+<h4 style="color:tomato;"><u>Front View</u></h4>
+<svg id="front" height="320" width="650" style="">	
+<rect x="116" y="134" width="30" height="37"
+style="fill:blue;stroke:black;stroke-width:3;fill:tomato;stroke-opacity:0.8";transform ='translate(200,100)'" />
+<rect x="174" y="134" width="30" height="37"
+style="fill:blue;stroke:black;stroke-width:3;fill:tomato;stroke-opacity:0.8" />
+
+<!-- <circle cx="131" cy="153" r="13" stroke="black" stroke-width="1" fill="tomato" />
+<circle cx="135" cy="157" r="7" stroke="black" stroke-width="2" fill="black" />  
+<circle cx="189" cy="153" r="13" stroke="black" stroke-width="1" fill="tomato" />
+<circle cx="193" cy="157" r="7" stroke="black" stroke-width="2" fill="black" /> -->
+
+<path d="M 143 206 C 121 235, 195 241, 182 206" stroke-width="3" stroke="black" fill="tomato"/>
+<line x1="142" y1="206" x2="183" y2="206" style="stroke:black;stroke-width:3" />
+
+
+<line x1="100" y1="133" x2="100" y2="252" 
+style="stroke:black;stroke-width:4" />
+<line x1="221" y1="252" x2="98" y2="252" style="stroke:black;stroke-width:4" />
+<line x1="163" y1="83" x2="240" y2="149" 
+style="stroke:black;stroke-width:4" />
+<line x1="165" y1="83" x2="83" y2="149" style="stroke:black;stroke-width:4" />
+<line x1="219" y1="133" x2="219" y2="252" 
+style="stroke:black;stroke-width:4" />
+<line x1="186" y1="49" x2="186" y2="100" style="stroke:black;stroke-width:4" />
+<line x1="211" y1="49" x2="211" y2="125"
+ style="stroke:black;stroke-width:4" />
+<line x1="214" y1="49" x2="184" y2="49" style="stroke:black;stroke-width:4" />
+</svg> 
+</div>
+
+
+</div>
+
+<div id="sideview" style="float:left;width:50%;border: 1px solid">
+<div id="sidesviewsvg" style="overflow:hidden"> 
+<h4 style="color:tomato;"><u>Side View</u></h4>
+<svg id="side" width="650" height="320">
+<rect x="145" y="70" width="150" height="72"
+style="fill:tomato;stroke:Black;stroke-width:3;fill-opacity:1;stroke-opacity:0.9" />
+<rect x="171" y="142" width="100" height="110"
+style="fill:white;stroke:Black;stroke-width:3;fill-opacity:0.1;stroke-opacity:0.9" />
+<rect x="188" y="49" width="67" height="20"
+style="fill:white;stroke:Black;stroke-width:3;fill-opacity:0.1;stroke-opacity:0.9" />
+<rect x="183" y="160" width="30" height="37"
+style="fill:tomato;stroke:black;stroke-width:3;fill-opacity:0.5;stroke-opacity:0.8" />
+<rect x="231" y="160" width="30" height="37"
+style="fill:tomato;stroke:black;stroke-width:3;fill-opacity:0.5;stroke-opacity:0.8" />
+</svg>
+</div>
+
+
+</div>
+
+<div id="topview" style="float:left;width:50%;border: 1px solid">
+<div id="topviewsvg" style="overflow:hidden"> 
+<h4 style="color:tomato;"><u>Top View</u></h4>
+<svg id="top" height="320" width="650">	
+<rect x="80" y="75" width="173" height="133"
+style="fill:white;stroke:Black;stroke-width:3;fill-opacity:0.1;stroke-opacity:2" />
+  
+<line x1="162" y1="74" x2="162" y2="210" style="stroke:black;stroke-width:4" />
+  
+<rect x="192" y="122" width="30" height="37"
+style="fill:tomato;stroke:Black;stroke-width:3;fill-opacity:0.8;stroke-opacity:2" />
+  
+<path d="M10 10"/>
+</svg> 
+</div>
+
+
+</div>
+</div>
+
+
+<script>
+//functions to perform 2D transformations on front view
+/* function funcfronttrans(value) {
+document.getElementById("ftrans").value=value;
+var x = value;
+var y="translate("+x+"px,0px)";
+document.getElementById("front").style.transform = y;
+}
+	
+function funcfrontrot(value) {
+var i=value+" deg";
+document.getElementById("frot").value=i;
+var x = value;
+var y="rotate("+x+"deg)";
+document.getElementById("front").style.transform = y;
+//document.getElementById("front").style.transform = "rotate(20deg)";
+}
+	
+function funcfrontscale(value) {
+document.getElementById("fscale").value=value;
+var x = value;
+var y="scale("+x+","+x+")";
+document.getElementById("front").style.transform = y;
+}
+	
+function funcfrontshear(value) {
+var i=value+" deg";
+document.getElementById("fskew").value=i;
+var x = value;
+var y="skewX("+x+"deg)";
+document.getElementById("front").style.transform = y;
+}
+	
+//functions to perform 2D transformations on side view
+function funcsidetrans(value) {
+document.getElementById("strans").value=value;
+var x = value;
+var y="translate("+x+"px,0px)";
+document.getElementById("side").style.transform = y;
+}
+	
+function funcsiderot(value) {
+var i=value+" deg";
+document.getElementById("srot").value=i;
+var x = value;
+var y="rotate("+x+"deg)";
+document.getElementById("side").style.transform = y;
+}
+	
+function funcsidescale(value) {
+document.getElementById("sscale").value=value;
+var x = value;
+var y="scale("+x+","+x+")";
+document.getElementById("side").style.transform = y;
+}
+	
+function funcsideshear(value) {
+var i=value+" deg";
+document.getElementById("sskew").value=i;
+var x = value;
+var y="skewX("+x+"deg)";
+document.getElementById("side").style.transform = y;
+} */
+	
+//functions to perform 2D transformations on top view
+	
+/* function functoptrans(value) {
+document.getElementById("ttrans").value=value;
+var x = value;
+var y="translate("+x+"px,0px)";
+document.getElementById("top").style.transform = y;
+}
+	
+function functoprot(value) {
+var i=value+" deg";
+document.getElementById("trot").value=i;
+var x = value;
+var y="rotate("+x+"deg)";
+document.getElementById("top").style.transform = y;
+}
+	
+function functopscale(value) {
+document.getElementById("tscale").value=value;
+var x = value;
+var y="scale("+x+","+x+")";
+document.getElementById("top").style.transform = y;
+}
+	
+function functopshear(value) {
+var i=value+" deg";
+document.getElementById("tskew").value=i;
+var x = value;
+var y="skewX("+x+"deg)";
+document.getElementById("top").style.transform = y;
+} */
+</script>

@@ -1,0 +1,33 @@
+----------------------------------------------------------------------------
+Assignment	:Final Project Week 2
+
+Name 		:Snehitha Ramasahayam
+
+Student ID   	:01714702
+
+Link		:http://www.cs.uml.edu/~sramasah/427546s2018/finalProject/2/
+
+Email		:snehitha_ramasahayam@student.uml.edu
+
+Cs Dept Email   :sramasah@cs.uml.edu                                            |
+----------------------------------------------------------------------------
+
+FILES:
+
+
+1. The file "1. HouseViewTransform.html" consists of a 2D house elevations of front, side and top views along with transformations like translate, rotate, scale, shear.
+
+This web page is working fine in the Google chrome browser.
+
+---------------------
+Working Instructions:|
+---------------------
+
+
+Open the link provided  and then click on the HouseViewTransform.html.
+This opens the web page  and the top side and front views of the house can be seen on this one page.
+
+To view the translations drag the bar for respective translation of the view.
+Based on the values the views are rotated, translated, scaled and sheared.
+
+

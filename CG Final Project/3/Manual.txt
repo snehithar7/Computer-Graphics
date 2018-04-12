@@ -1,0 +1,34 @@
+----------------------------------------------------------------------------
+Assignment	:Final Project Week 3
+
+Name 		:Snehitha Ramasahayam
+
+Student ID   	:01714702
+
+Link		:http://www.cs.uml.edu/~sramasah/427546s2018/finalProject/3/
+
+Email		:snehitha_ramasahayam@student.uml.edu
+
+Cs Dept Email   :sramasah@cs.uml.edu                                            |
+----------------------------------------------------------------------------
+
+FILES:
+
+
+1. The file "1. 3DHouse.html" consists of a 3D  transformation of entire house elevation
+   which are extended from the previous Weeks Assignments.
+   This web page is working fine in the Google chrome browser.
+2. This folder also contains the Projections of the cube.Different projections of Perspective  like 1pointProjection.html , 2PointProjection.html, 3PointProjection.html  are added.
+From Parallel Projections Oblique.html is added.
+
+---------------------
+Working Instructions:
+---------------------
+
+
+1.Open the link provided  and then click on the 3DHouse.html.
+This opens the web page  and the 3D viewing of the entire House Object can be seen on this webpage.
+
+
+2.Click the specific link for the projection under sub-folders, web page of the specific projection is opened.You can view all the projections similarly.
+

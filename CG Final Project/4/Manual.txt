@@ -1,0 +1,57 @@
+----------------------------------------------------------------------------
+Assignment	:Final Project Week 4
+
+Name 		:Snehitha Ramasahayam
+
+Student ID   	:01714702
+
+Link		:http://www.cs.uml.edu/~sramasah/427546s2018/finalProject/4/
+
+Email		:snehitha_ramasahayam@student.uml.edu
+
+Cs Dept Email   :sramasah@cs.uml.edu                                            |
+----------------------------------------------------------------------------
+
+FILES:
+
+
+1. The file " 3DCube.html" consists of a 3D  transformation of  the object Cube.
+
+2. The file " Dimetric.html" consists of Parallel  Dimetric projection of  the object  Cube.
+
+3. The file " Isometric.html" consists of a Parallel Isometric projection of  the object Cube.
+
+4.The file " Trimetric.html" consists of a  Parallel Trimetric projection of  the object Cube.
+
+5.The file " Pyramid.html" consists of a 3D  transformation of  the object Pyramid.
+
+6.The file " cylinder.html" consists of a 3D  transformation of  the object cylinder.
+
+7.I included additional files of css-Style1.css and background Image-Blue.jpg.
+
+8.three.js and three1.js libraries  are added for the 3D transformations of the Geometric objects.
+
+Overall working on different 3D viewings of the geometric figures is very interesting and i learned the Camera positions and rendering of the objects.
+Hopefully i will add different features in the coming weeks.
+
+
+
+   
+
+---------------------
+Working Instructions:
+---------------------
+
+
+1. Open the link provided  and then click on the specific html page.All the html pages descriptions are intuitive and you can view specific features to html Page. 
+
+
+
+2.All the attached html files are working fine on the Google Chrome Web- browser.
+
+-----------
+References:|
+-----------
+
+1. https://www.w3schools.com/graphics/2. https://stackoverflow.com/3. https://threejs.org/
+

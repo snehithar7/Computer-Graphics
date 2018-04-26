@@ -1,0 +1,49 @@
+----------------------------------------------------------------------------
+Assignment	:Final Project Week 5
+
+Name 		:Snehitha Ramasahayam
+
+Student ID   	:01714702
+
+Link		:http://www.cs.uml.edu/~sramasah/427546s2018/finalProject/5/
+
+Email		:snehitha_ramasahayam@student.uml.edu
+
+Cs Dept Email   :sramasah@cs.uml.edu                                            |
+----------------------------------------------------------------------------
+
+FILES:
+
+
+1. The file " Camera.html" consists of  many 3D cylinder displays with shadows and perspective camera is used. thre.js file is used here
+
+2. The file " Texture.html" consists of the  the texture code along with the bumps to the spheres.
+
+3. 1.jpg, 2.jpg, 3.jpg, 4.jpg, 5.jpg are used are used in the Textures of the spheres
+
+4.three.js , CanvasRenderer.js, Detector.js, OrbitControls.js, Projector.js and three.js libraries  are added for the 3D transformations  in the Texture.html file.
+
+Overall working on different 3D viewings of the geometric figures is very interesting and i learned the Camera positions and rendering of the objects.
+Hopefully i will add different features in the coming weeks.
+
+
+
+   
+
+---------------------
+Working Instructions:
+---------------------
+
+
+1. Open the link provided  and then click on the specific html page.All the html pages descriptions are intuitive and you can view specific features to html Page. 
+
+
+
+2.All the attached html files are working fine on the Google Chrome Web- browser.
+
+-----------
+References:|
+-----------
+
+1. https://www.w3schools.com/graphics/2. https://stackoverflow.com/3. https://threejs.org/
+

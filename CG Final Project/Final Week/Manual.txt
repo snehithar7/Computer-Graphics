@@ -1,0 +1,57 @@
+----------------------------------------------------------------------------
+Assignment	:Final Project Final
+
+Name 		:Snehitha Ramasahayam
+
+Student ID   	:01714702
+
+Link		:http://www.cs.uml.edu/~sramasah/427546s2018/finalProject/Final%20Submission/
+
+Email		:snehitha_ramasahayam@student.uml.edu
+
+Cs Dept Email   :sramasah@cs.uml.edu                                            |
+----------------------------------------------------------------------------
+
+FILES:
+
+
+1. The file " Canvas_ascii_effect.html" consists of  animation and rendering code.
+ 
+
+2. The file " AsciiEffect.js." consists of the  effects and  different ASCII chars selected to be displayed on screen.
+
+3. The file TrackballControls.js  contains the controls added.
+
+4. The files three.js, stats.min.js  contains the API of 3D javascript libraries used.
+
+5. CanvasRenderer.js contains the code  for rendering.
+
+
+By dragging and moving the mouse different views of the bouncing of the code can be viewed.
+
+
+Overall working on different 3D viewings of the geometric figures is very interesting and i learned the Camera positions and rendering of the objects.
+Hopefully i will add different features in the coming weeks.
+
+
+
+   
+
+---------------------
+Working Instructions:
+---------------------
+
+
+1. Open the link provided  and then click on the Canvas_ascii_effect.html page.Drag the mouse for different direction viewing.
+
+ 
+
+
+2.All the attached html files are working fine on the Google Chrome Web- browser.
+
+-----------
+References:|
+-----------
+
+1. https://www.w3schools.com/graphics/2. https://stackoverflow.com/3. https://threejs.org/
+

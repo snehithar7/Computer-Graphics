@@ -15,23 +15,30 @@ Cs Dept Email   :sramasah@cs.uml.edu                                            
 FILES:
 
 
-1. The file " Canvas_ascii_effect.html" consists of  animation and rendering code.
+1. The file " Canvas_ascii_effect.html" consists of a  plane and 3D bouncing of the cube on the animation and rendering code.By dragging and moving the mouse different views of the bouncing of the cube on the plane  can be viewed.In some angles the plane cannot be viewed which should be corrected.Please  drag the mouse  to view the plane
  
+2.CSS3d_CG.html contains the code of CSS Animation. Please click on button  Sphere,Grid,Helix for respective 3d animation and clear for clearing.You can scroll the views and Zoom in and Zoom out them with the mouse.
+
+Click on any object square it takes to the final project link of Computer Graphics.
+
 
 2. The file " AsciiEffect.js." consists of the  effects and  different ASCII chars selected to be displayed on screen.
 
 3. The file TrackballControls.js  contains the controls added.
 
-4. The files three.js, stats.min.js  contains the API of 3D javascript libraries used.
+4. The files three.js, stats.min.js  are  javascript libraries used for the pages.
 
 5. CanvasRenderer.js contains the code  for rendering.
 
+6. CSS3DRenderer.js  and tween.min.js  are  3js libraries for CSS 3D  animation.
 
-By dragging and moving the mouse different views of the bouncing of the code can be viewed.
+
+
+
 
 
 Overall working on different 3D viewings of the geometric figures is very interesting and i learned the Camera positions and rendering of the objects.
-Hopefully i will add different features in the coming weeks.
+
 
 
 
@@ -43,6 +50,8 @@ Working Instructions:
 
 
 1. Open the link provided  and then click on the Canvas_ascii_effect.html page.Drag the mouse for different direction viewing.
+
+2.Click on the CSS3d_CG.html for CSS3D Animation.
 
  
 
